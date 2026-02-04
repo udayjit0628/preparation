@@ -1,0 +1,233 @@
+Project Scenario  
+
+How to Explain Day-to-Day Activities 
+
+- In my 2 years as a DevOps engineer, my daily activities included creating and maintaining Jenkins 
+CI/CD pipelines integrated with GitHub, Maven, and Docker. I managed AWS infrastructure,including  
+EC2, IAM, S3, and supported Kubernetes deployments. I automated serverconfiguration using Ansible,  
+built Docker images, and monitored applications for errors. I alsocollaborated with developers and  
+QA to ensure smooth deployments and documented processes for future reference.” 
+
+How to Explain project work? 
+
+I worked as a DevOps Engineer at Tech Mahindra on Vodafone Idea’s Project HORIZON. 
+My role was to automate CI/CD pipelines using Jenkins integrated with GitHub, Maven, and Docker. 
+I managed AWS infrastructure, supported Kubernetes deployments, automated server configuration using Ansible, and wrote basic Terraform scripts for provisioning. 
+I collaborated with developers and QA to ensure smooth deployments and monitored applications for performance and errors. 
+
+ 
+
+1️⃣  CI/CD Pipeline Scenarios (Jenkins, Maven, GitHub, Docker) 
+
+Q1: Suppose a Jenkins pipeline fails during the Maven build stage. How will you troubleshoot it? 
+
+Answer Guidance: 
+
+- Check Jenkins console output for build errors. 
+
+- Verify GitHub code changes for syntax or dependency issues. 
+
+- Check Maven POM files for missing dependencies. 
+
+- Validate environment variables and credentials in Jenkins. 
+
+- Optionally, run Maven build locally to isolate the issue. 
+
+Q2: How would you handle a situation where a Docker image builds fine locally but fails in the Jenkins pipeline? 
+
+Answer Guidance: 
+
+- Compare Dockerfile and build context in Jenkins vs local. 
+
+- Check Jenkins agent environment, permissions, and Docker daemon. 
+
+- Ensure all dependencies and network access are available on Jenkins agents. 
+
+- Use pipeline logs to pinpoint exact failure stage. 
+
+Q3: If a deployment to AWS fails after successful Jenkins build, what steps would you take? 
+Answer Guidance: 
+
+- Check AWS logs (CloudWatch, EC2 logs). 
+
+- Verify IAM permissions for deployment user. 
+
+- Check security groups or firewall rules blocking deployment. 
+
+- Validate Terraform / Ansible scripts if used for provisioning. 
+
+- Rollback deployment if required using previous stable Docker image or artifact. 
+
+ 
+
+2️⃣ AWS Infrastructure Scenarios 
+
+Q4: How would you troubleshoot an EC2 instance that cannot connect to the application deployed on it? 
+Answer Guidance: 
+
+- Check security groups, NACLs, and firewall rules. 
+
+- Validate application logs on the EC2 instance.  
+
+- Check EC2 instance health and CPU/memory usage. 
+
+- Ensure Docker/Kubernetes container is running correctly. 
+
+- Verify IAM roles and policies if accessing other AWS resources. 
+
+Q5: Suppose Terraform fails to provision an S3 bucket due to “already exists” error. How will you handle it? 
+Answer Guidance: 
+
+- Check if the bucket already exists in AWS globally (S3 bucket names are unique). 
+
+- Use terraform state list and terraform import to manage existing resources. 
+
+- Update Terraform resource naming if needed. 
+
+- Re-run terraform plan and terraform apply carefully. 
+
+3️⃣ Kubernetes & Docker Scenarios 
+
+Q6: A container is crashing repeatedly in Kubernetes after deployment. How will you troubleshoot? 
+Answer Guidance: 
+
+- Run kubectl describe pod <pod-name> to check events and container status. 
+
+- Run kubectl logs <pod-name> for application logs. 
+
+- Check resource limits (CPU/memory) in the pod spec. 
+
+- Validate config maps and secrets used by the container. 
+
+- Verify Docker image version deployed is correct. 
+
+Q7: How do you handle a situation where a Kubernetes deployment is not scaling as expected? 
+Answer Guidance: 
+
+- Check Horizontal Pod Autoscaler (HPA) configuration. 
+
+- Inspect replica count and pod status using kubectl get pods. 
+
+- Verify resource limits and usage metrics. 
+
+- Check for node capacity and availability. 
+
+- Adjust deployment YAML and apply changes if needed. 
+
+4️⃣ Ansible & Automation Scenarios 
+
+Q8: You run an Ansible playbook, but the tasks fail on a remote server. How do you fix it? 
+Answer Guidance: 
+
+- Check SSH connectivity to the server. 
+
+- Verify Ansible inventory file and host IPs. 
+
+- Check user permissions on the target server. 
+
+- Debug playbook using -vvv flag for detailed output. 
+
+- Ensure required packages are installed on the remote host. 
+
+Q9: How would you roll back a configuration change applied via Ansible that caused an issue in production? 
+Answer Guidance: 
+
+- Use Ansible playbooks designed for rollback or restore from backup configuration. 
+
+- If versioned configs are used, deploy previous stable playbook. 
+
+- Ensure changes are tested in staging before production. 
+
+- Communicate rollback with team and monitoring teams. 
+
+5️⃣ Azure DevOps / Pipeline Scenario 
+
+Q10: Suppose a pipeline in Azure DevOps fails during deployment due to environment issues. What steps do you take? 
+Answer Guidance: 
+
+- Check pipeline logs for exact error. 
+
+- Validate service connections and credentials for Azure. 
+
+- Ensure environment variables and secrets are correctly set. 
+
+- Retry pipeline after fixing the environment issue. 
+
+- Communicate with dev team if the issue is application-related. 
+
+
+ 
+
+ 
+
+Which Linux version have you used? 
+
+I have worked mainly on Ubuntu 20.04 LTS for development, CI/CD, and deployment servers. 
+
+Explain why you used it → stability, package manager, community support 
+
+ 
+
+ 
+
+An EC2 instance stops working suddenly. What steps would you take?” 
+A deployment is failing because of IAM permission issues. How do you troubleshoot? 
+
+Follow step-by-step troubleshooting: 
+
+- Check EC2 instance health, CPU, memory 
+- Check security groups and IAM roles 
+- Check deployment logs (Jenkins / Kubernetes / Terraform) 
+
+ If an EC2 instance is down, I check the AWS console for the instance status, 
+ look at CloudWatch logs, ensure security groups allow access, and verify if 
+IAM roles have sufficient permissions. Then I take corrective action like restarting 
+the instance or updating the configuration.” 
+
+ 
+A pod in Kubernetes is stuck in CrashLoopBackOff. What do you do?” 
+Docker image deployment fails. How would you troubleshoot?” 
+
+- Mention commands and workflow: 
+- kubectl get pods → check pod status 
+- kubectl describe pod → check events 
+- kubectl logs <pod> → debug logs 
+- Docker: check Dockerfile, image build logs, container logs 
+
+ I check the pod status using kubectl get pods, then describe the pod for events, 
+and finally check container logs for errors. For Docker image issues, I check the 
+Dockerfile, rebuild the image, and push it to the repository. 
+
+ 
+
+“Ansible playbook fails on a server. How do you fix it?” 
+You need to update a package across 50 servers. How do you do it safely?” 
+
+- Check playbook logs and error messages 
+- Use tags or limit to troubleshoot specific hosts 
+- Test changes in a staging environment first 
+
+I run the playbook with --check first to see changes. If it fails, I check the error 
+message and correct syntax or permissions. For updating multiple servers, I use --limit 
+to run in batches.” 
+
+ 
+
+Terraform apply failed with an error. How do you fix it?” 
+How do you handle changes in infrastructure without affecting production?” 
+
+- Always plan → terraform plan 
+- Check state file for drift 
+- Apply in staging first, then production 
+
+ I run terraform plan to see what changes will happen, check for resource conflicts or 
+dependencies, and then run terraform apply. I ensure changes are first applied in a 
+staging environment before production.” 
+
+ 
+
+A developer says the pipeline broke after their commit. What do you do?” 
+How do you handle conflicting deployments between QA and Dev?” 
+
+- I first check the Jenkins pipeline logs to identify which commit caused failure. 
+Then I coordinate with the developer to fix the code or roll back to a previous stable build.” 
