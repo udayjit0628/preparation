@@ -20,7 +20,11 @@ My role was to automate CI/CD pipelines using Jenkins integrated with GitHub, Ma
 I managed AWS infrastructure, supported Kubernetes deployments, automated server configuration using Ansible, and wrote basic Terraform scripts for provisioning. 
 I collaborated with developers and QA to ensure smooth deployments and monitored applications for performance and errors. 
 
- 
+ Can you explain a CI/CD pipeline you worked on and your role in it? 
+
+-I worked on creating and maintaining Jenkins CI/CD pipelines using Jenkinsfile. 
+We used declarative pipelines where Jenkins checked out code from GitHub, ran Maven builds, created Docker images, and automated deployments. 
+My role was to manage pipeline stages, fix build failures, and support deployments. 
 
 1️⃣  CI/CD Pipeline Scenarios (Jenkins, Maven, GitHub, Docker) 
 
